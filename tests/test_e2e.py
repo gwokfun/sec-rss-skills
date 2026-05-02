@@ -479,7 +479,8 @@ class TestE2EEdgeCases:
         def fake_get(url, **kwargs):
             if "opml" in url.lower() or "tiny.opml" in url:
                 return _make_response(opml_two_feeds)
-            if "bad.example.com" in url:
+            from urllib.parse import urlparse
+            if urlparse(url).netloc == "bad.example.com":
                 raise req_mod.RequestException("Bad feed unreachable")
             return _make_response(MINIMAL_RSS)
 
