@@ -95,7 +95,10 @@ def parse_datetime(value: Any) -> dt.datetime | None:
 
 def extract_feeds_from_opml(opml_text: str) -> list[tuple[str, str]]:
     feeds: list[tuple[str, str]] = []
-    root = ET.fromstring(opml_text)
+    try:
+        root = ET.fromstring(opml_text)
+    except ET.ParseError:
+        return feeds
     for outline in root.findall(".//outline"):
         xml_url = outline.attrib.get("xmlUrl")
         if not xml_url:
@@ -203,9 +206,9 @@ def parse_json_payload(raw_text: str) -> dict[str, Any] | None:
         payload = json.loads(text)
         if isinstance(payload, dict):
             return payload
+        return None
     except json.JSONDecodeError:
         return None
-    return None
 
 
 def ai_enrich_item(
@@ -419,7 +422,10 @@ def main() -> None:
     session = requests.Session()
     session.headers.update({"User-Agent": "sec-rss-daily/1.0"})
 
-    feeds = fetch_opml_feeds(session, p_fetch["opml_url"])
+    opml_url = p_fetch.get("opml_url", "")
+    if not opml_url:
+        raise ValueError("pipeline.rss_fetch.opml_url is not set in config")
+    feeds = fetch_opml_feeds(session, opml_url)
     feeds = feeds[: int(p_fetch.get("max_feeds", 100))]
 
     all_items: list[NewsItem] = []

@@ -1,12 +1,46 @@
 ---
 name: sec-rss-daily
+version: "1.0.0"
 description: Use this skill to generate daily security RSS digest reports in Markdown format. The skill aggregates security news from RSS feeds, scores and categorizes them using AI or heuristics, clusters vulnerability events, and outputs a comprehensive daily report. Use when the user wants to create security news digests, aggregate CVE information, or generate automated security briefings.
+author: gwokfun
 license: MIT
 compatibility: Requires Python 3.9+, sqlite (optional), and dependencies from requirements.txt. Optional AI API key for enhanced scoring and categorization.
+apis:
+  - run(date?: string): markdown_file
+inputs:
+  date:
+    type: string
+    required: false
+    description: "Report date in YYYY-MM-DD format. Defaults to today (UTC)."
+  config:
+    type: string
+    required: false
+    description: "Path to skill.yaml config file. Defaults to skills/sec-rss-daily/skill.yaml."
+  system_prompt:
+    type: string
+    required: false
+    description: "Path to AI system prompt file. Defaults to prompts/ai_enrich_system.md."
+  AI_API_KEY:
+    type: env_var
+    required: false
+    description: "API key for OpenAI-compatible endpoint. If unset, heuristic fallback is used."
+  AI_ENDPOINT:
+    type: env_var
+    required: false
+    description: "OpenAI-compatible chat completions endpoint URL."
+  AI_MODEL:
+    type: env_var
+    required: false
+    description: "Model name to use for AI enrichment (e.g. gpt-4o-mini)."
+outputs:
+  report:
+    type: file
+    description: "Markdown report written to output/sec-daily-YYYY-MM-DD.md"
+  archive:
+    type: file
+    description: "Deduplication archive updated at data/seen_items.json"
 metadata:
-  version: "1.0.0"
-  author: gwokfun
-  tech_stack: python3, sqlite, scikit-learn, feedparser
+  tech_stack: python3, scikit-learn, feedparser
   agents: hermes-agent, openclaw
 ---
 
