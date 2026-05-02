@@ -2,6 +2,8 @@
 
 基于 RSS 源聚合每日热点的信息安全资讯，并按固定技能流程输出 Markdown 日报。
 
+**符合 [agentskills.io](https://agentskills.io/specification) 规范** — 与 hermes-agent、openclaw 等 AI 代理兼容。
+
 ## 流程编排
 
 本仓库不是仅靠提示词约束，而是通过脚本对流程进行固定编排：
@@ -14,6 +16,17 @@
 6. 漏洞事件聚合（CVE 匹配 + 语义聚类）
 7. 渲染 Markdown 日报
 
+## agentskills.io 规范支持
+
+本项目遵循 [agentskills.io 规范](https://agentskills.io/specification)：
+
+- ✅ **标准 SKILL.md**：包含必需的 YAML frontmatter（`name`、`description`）
+- ✅ **目录命名一致**：技能目录名称与 `name` 字段匹配
+- ✅ **代理兼容性**：支持 hermes-agent、openclaw 等符合规范的 AI 代理
+- ✅ **渐进式披露**：元数据、指令、资源三级加载优化
+
+详细技能文档：[skills/sec-rss-daily/SKILL.md](/skills/sec-rss-daily/SKILL.md)
+
 ## 仓库结构
 
 ```text
@@ -22,15 +35,16 @@
 │   └── generate_sec_daily.py      # 主流程脚本
 ├── skills/
 │   └── sec-rss-daily/
-│       ├── skill.yaml             # Skill 编排配置
-│       ├── run.sh                 # Skill 执行入口
-│       └── SKILL.md               # Skill 说明
+│       ├── SKILL.md               # agentskills.io 标准技能文档
+│       ├── skill.yaml             # 运行时配置（非标准，用于流程编排）
+│       └── run.sh                 # Skill 执行入口
 ├── prompts/
 │   └── ai_enrich_system.md        # AI 输出约束模板
 ├── data/
 │   └── seen_items.json            # 历史归档（运行后生成/更新）
 ├── output/                        # Markdown 日报输出目录
-└── requirements.txt
+├── requirements.txt
+└── LICENSE                        # MIT 许可证
 ```
 
 ## 安装
