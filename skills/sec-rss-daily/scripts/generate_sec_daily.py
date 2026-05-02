@@ -399,7 +399,7 @@ def render_markdown(
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate security RSS daily markdown report")
     parser.add_argument("--config", default="skills/sec-rss-daily/skill.yaml", help="Skill config YAML path")
-    parser.add_argument("--system-prompt", default="prompts/ai_enrich_system.md", help="AI system prompt path")
+    parser.add_argument("--system-prompt", default="skills/sec-rss-daily/prompts/ai_enrich_system.md", help="AI system prompt path")
     parser.add_argument("--date", default=None, help="Report date, format YYYY-MM-DD")
     args = parser.parse_args()
 

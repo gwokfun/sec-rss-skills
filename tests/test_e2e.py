@@ -16,7 +16,7 @@ import pytest
 import yaml
 
 # Ensure scripts/ is importable
-SCRIPTS_DIR = Path(__file__).parent.parent / "scripts"
+SCRIPTS_DIR = Path(__file__).parent.parent / "skills" / "sec-rss-daily" / "scripts"
 sys.path.insert(0, str(SCRIPTS_DIR))
 
 # ---------------------------------------------------------------------------

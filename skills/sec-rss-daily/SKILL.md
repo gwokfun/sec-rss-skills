@@ -19,7 +19,7 @@ inputs:
   system_prompt:
     type: string
     required: false
-    description: "Path to AI system prompt file. Defaults to prompts/ai_enrich_system.md."
+    description: "Path to AI system prompt file. Defaults to skills/sec-rss-daily/prompts/ai_enrich_system.md."
   AI_API_KEY:
     type: env_var
     required: false
@@ -79,7 +79,7 @@ bash skills/sec-rss-daily/run.sh
 
 This will:
 - Load configuration from `skills/sec-rss-daily/skill.yaml`
-- Execute the main pipeline script at `scripts/generate_sec_daily.py`
+- Execute the main pipeline script at `skills/sec-rss-daily/scripts/generate_sec_daily.py`
 - Output a Markdown report to `output/sec-daily-YYYY-MM-DD.md`
 - Update the deduplication archive at `data/seen_items.json`
 
@@ -148,10 +148,10 @@ skills/sec-rss-daily/
 ├── SKILL.md              # This file (agentskills.io standard)
 ├── skill.yaml            # Pipeline configuration (not part of standard)
 ├── run.sh                # Execution entry point
-scripts/
-├── generate_sec_daily.py # Main pipeline implementation
-prompts/
-├── ai_enrich_system.md   # AI system prompt template
+├── scripts/
+│   └── generate_sec_daily.py  # Main pipeline implementation
+└── prompts/
+    └── ai_enrich_system.md    # AI system prompt template
 data/
 ├── seen_items.json       # Historical deduplication archive (generated)
 output/

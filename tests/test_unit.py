@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 # Ensure the scripts directory is importable
-sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "skills" / "sec-rss-daily" / "scripts"))
 from generate_sec_daily import (  # noqa: E402
     NewsItem,
     aggregate_cve_events,
