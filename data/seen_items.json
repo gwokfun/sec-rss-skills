@@ -1,0 +1,176 @@
+{
+  "eb3c204b3368cecdfb422ab82d10dd1caa15985d99a09786da4e8ada751529d0": {
+    "title": "Global Cyber Threat Brief: Identity Breaches, Supply Chain Attacks, and the Rise of Organized Cybercrime",
+    "link": "https://securityboulevard.com/2026/05/global-cyber-threat-brief-identity-breaches-supply-chain-attacks-and-the-rise-of-organized-cybercrime/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "fcd82e77a994d1ac1515f713526a352e8aafd837d2abccb158fb2b93a3599c3a": {
+    "title": "今日（2026年5月2日）热点网络安全漏洞动态",
+    "link": "https://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ%3D%3D&mid=2247505535&idx=1&sn=c1754d49df01973d9cfcb9d0eabdef41",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "奇安信CERT"
+  },
+  "a8efda613bb9d123617cf0c42b48d5023176bc62b92fd30f328f9b74ff3ed23f": {
+    "title": "CVE-2026-31431: Copy Fail vulnerability enables Linux root privilege escalation across cloud environments",
+    "link": "https://www.microsoft.com/en-us/security/blog/2026/05/01/cve-2026-31431-copy-fail-vulnerability-enables-linux-root-privilege-escalation/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Microsoft Security Blog"
+  },
+  "cc818ef820a5bae9ddf109bab1eb65218ca2b423102996509e67d6e0899bf767": {
+    "title": "[un]prompted 2026 – Source to Sink: Improving LLM Vuln Discovery",
+    "link": "https://securityboulevard.com/2026/05/unprompted-2026-source-to-sink-improving-llm-vuln-discovery/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "1aab946217b7f03ec4cf444be4a60d4c94019405b07c8e8f53134b5dae7c150e": {
+    "title": "Addressing the Edge Security Paradox",
+    "link": "https://securityboulevard.com/2026/05/addressing-the-edge-security-paradox/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "8d355385df821a8f3ff17a14427ced0cb83a7d95693438b67d29d4015c8f5706": {
+    "title": "Linux 内核提权 CVE-2026-31431",
+    "link": "http://www.seebug.org/vuldb/ssvid-99968",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Seebug漏洞社区"
+  },
+  "320db1b5cbe9048bfc7dba06177f729c4aec5e97c6d835ff9a219b911cd5c7c3": {
+    "title": "The file sandbox works. The privacy contract doesn't. Chrome closed the ticket anyway.",
+    "link": "https://www.reddit.com/r/redteamsec/comments/1t1iakg/the_file_sandbox_works_the_privacy_contract/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Red Team Security"
+  },
+  "bd5534bfcc269ec8312e0bddaeb933021f7c18525153b972f2b211a46d535ef8": {
+    "title": "为什么会有这个博客",
+    "link": "https://micropoor.blogspot.com/2017/12/blog-post.html",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "专注APT攻击与防御"
+  },
+  "a946e7f46fb8bad046ebac6ef224558bad6a8d735023fcd419e8b0d5708b2007": {
+    "title": "Guidance for learning and breakthrough in cybersecurity",
+    "link": "https://www.reddit.com/r/Pentesting/comments/1t14ocd/guidance_for_learning_and_breakthrough_in/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Pentesting"
+  },
+  "bdd37e3cd583cbe30f96d3c26be1c13af745baaafaaeac1c18efba278d457338": {
+    "title": "Has anyone successfully red team’s a collocation center?",
+    "link": "https://www.reddit.com/r/Pentesting/comments/1t0ymlh/has_anyone_successfully_red_teams_a_collocation/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Pentesting"
+  },
+  "1d8cdffcf94f30b2fd4969a83a9ec4452bbd4ee9f3d5bb43c832d6cccffb2e68": {
+    "title": "2026: Why have we not solved DDoS Yet?",
+    "link": "https://www.pwndefend.com/2026/05/02/2026-why-have-we-not-solved-ddos-yet/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "PwnDefend"
+  },
+  "f50f27d6da8b07c3fbeaa8caa921f8d5902438d3936d728237f7e83703864302": {
+    "title": "You Only Perturb Once: Bypassing (Robust) Ad-Blockers Using Universal Adversarial Perturbations",
+    "link": "https://leeswimming.com/papers/shin-acsac24.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "e60f86644855c6637bc0932d444329bc66b32f80369272c8f4bf15adbe6c3f50": {
+    "title": "Margin-based Neural Network Watermarking",
+    "link": "https://leeswimming.comhttps://proceedings.mlr.press/v202/kim23o/kim23o.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "d9ba8af9c8878c6675fb5ec8ad8ae042dc9f34ab2f62e6c2d11057e34c7af04c": {
+    "title": "RICC: Robust Collective Classification of Sybil Accounts",
+    "link": "https://leeswimming.com/papers/shin-www23.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "1eebdf983fee54067c9329dd871af4b80ee4f1e6531880522d85b14c938a58b9": {
+    "title": "Evaluating the Robustness of Trigger Set-Based Watermarks Embedded in Deep Neural Networks",
+    "link": "https://leeswimming.com/papers/lee-tdsc22.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "3e516a475e30527f75a7691233542630e21efb7ab437b677465024871de50658": {
+    "title": "Learning to Generate Inversion-Resistant Model Explanations",
+    "link": "https://leeswimming.com/papers/jeong-neurips22.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "7803ca77013741f54f568916c85517cbadcbde035ecaf1b815af5d5463bbb6d0": {
+    "title": "Montage: A Neural Network Language Model-Guided JavaScript Engine Fuzzer",
+    "link": "https://leeswimming.com/papers/lee-sec20.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "5ed2cd8f519294ac140f1d058122e9c10b6282154fae82c399c8f2f3b2bd9d03": {
+    "title": "FUSE: Finding File Upload Bugs via Penetration Testing",
+    "link": "https://leeswimming.com/papers/lee-ndss20.pdf",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Suyoung Lee"
+  },
+  "a14955a77702a6b923190122a1d14fdbe27940e2bcc98e669ded33a12aca5235": {
+    "title": "Daily Threat Briefing – May 2, 2026",
+    "link": "https://defend.network/briefings/cpanel-apt-credential-theft-saas-extortion-2026-05-02.html",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "defend.network"
+  },
+  "6784623651261bd17b823c9e6d484668540fb0f1deec9c15beabb54db73f2ba7": {
+    "title": "Web application testing with Burp Suite: a practical guide for UK SMEs",
+    "link": "https://securityboulevard.com/2026/05/web-application-testing-with-burp-suite-a-practical-guide-for-uk-smes/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "f0b83ff227a2b0496eb4c35f3068b345848045a77c71c8c06a0fd4964e036743": {
+    "title": "RBI Cybersecurity Compliance Checklist for Fintech Organizations",
+    "link": "https://securityboulevard.com/2026/05/rbi-cybersecurity-compliance-checklist-for-fintech-organizations/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "cf1b3f089bcafdd98018a564a066b6ad5aa9fa904e33af74a60bd925f2634734": {
+    "title": "North Korea’s Enormous Crypto Hacks Redefine Scale and Strategy",
+    "link": "https://securityboulevard.com/2026/05/north-koreas-enormous-crypto-hacks-redefine-scale-and-strategy/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "ad4f856b9abe17336e62a57121fb52c9cb8a5ca661c921f33ba75f9814a0ee6d": {
+    "title": "[un]prompted 2026 – Injecting Security Context During Vibe Coding",
+    "link": "https://securityboulevard.com/2026/05/unprompted-2026-injecting-security-context-during-vibe-coding/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "8881c471e48862ea2968fb74597d3dd3e52492b0c7ceb7204aaa50713e5a349a": {
+    "title": "Invisible Threats Within: Detecting Botnet Activity and Data Exfiltration Before It’s Too Late",
+    "link": "https://securityboulevard.com/2026/05/invisible-threats-within-detecting-botnet-activity-and-data-exfiltration-before-its-too-late/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "7129a861660f46ba7f1dc9e22c10b78c7d2e710c0d8659bb7e5ed832b49127bd": {
+    "title": "Building Entity Authority in Cybersecurity: The Trust Signals AI Models Actually Weight for Security Vendors",
+    "link": "https://securityboulevard.com/2026/05/building-entity-authority-in-cybersecurity-the-trust-signals-ai-models-actually-weight-for-security-vendors/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "ab74b5773c4ce01fbea64bc4d0673d1149e86b0ca467ae5bf705e1e614d33f16": {
+    "title": "Randall Munroe’s XKCD ‘Inflation Timeline’",
+    "link": "https://securityboulevard.com/2026/05/randall-munroes-xkcd-inflation-timeline/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "Security Boulevard"
+  },
+  "c10cd161ad9889cc730c807f3c1b5abc163626bd761515d05ae22a7f1717e132": {
+    "title": "New Bluekit Phishing Kit Features AI Assistant",
+    "link": "https://www.securityweek.com/new-bluekit-phishing-kit-features-ai-assistant/",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "SecurityWeek"
+  },
+  "eb9217384dd5bf5a0577a6ffc6e76f35a06d44490de34df9f20848e0c80d6f6b": {
+    "title": "SecWiki News 2026-05-02 Review",
+    "link": "http://www.sec-wiki.com/?2026-05-02=",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "SecWiki News(国内外安全资讯)"
+  },
+  "39e7e41f96a81f87af344451994f4c686f1f959a32ad86fa0f0a39b67f134b2d": {
+    "title": "原域名已变更且将在2024年彻底废弃，请访问 https://govuln.com/news/ 查看新的RSS订阅",
+    "link": "https://govuln.com/news/url/x8dB",
+    "last_seen_at": "2026-05-02T16:10:40.088658+00:00",
+    "source": "代码审计星球"
+  }
+}

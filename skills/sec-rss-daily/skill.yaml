@@ -1,0 +1,44 @@
+name: sec-rss-daily
+version: 1.0.0
+description: 安全RSS日报技能，基于固定流程编排与可选AI增强
+pipeline:
+  rss_fetch:
+    enabled: true
+    opml_url: https://github.com/zer0yu/CyberSecurityRSS/blob/master/tiny.opml
+    max_feeds: 120
+    max_entries_per_feed: 15
+  dedup_and_time_filter:
+    enabled: true
+    since_hours: 24
+    seen_penalty: 5
+  fulltext_fetch:
+    enabled: false
+    timeout_seconds: 8
+  ai_enrichment:
+    enabled: true
+    provider: openai-compatible
+    model: gpt-4o-mini
+    endpoint_env: AI_ENDPOINT
+    api_key_env: AI_API_KEY
+    model_env: AI_MODEL
+    max_items: 80
+    timeout_seconds: 30
+    categories:
+      - 漏洞通告
+      - 威胁情报
+      - 攻击事件
+      - 安全研究
+      - 工具与产品
+      - 政策与合规
+      - 其他
+  cve_aggregation:
+    enabled: true
+    semantic_cluster:
+      enabled: true
+      eps: 0.75
+      min_samples: 1
+output:
+  markdown_dir: output
+  report_name_format: sec-daily-{date}.md
+  archive_json_path: data/seen_items.json
+  timezone: UTC
