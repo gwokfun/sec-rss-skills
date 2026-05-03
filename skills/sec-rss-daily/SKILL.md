@@ -15,11 +15,11 @@ inputs:
   config:
     type: string
     required: false
-    description: "Path to skill.yaml config file. Defaults to skills/sec-rss-daily/skill.yaml."
+    description: "Path to skill.yaml config file. Defaults to skill.yaml in this skill directory."
   system_prompt:
     type: string
     required: false
-    description: "Path to AI system prompt file. Defaults to skills/sec-rss-daily/prompts/ai_enrich_system.md."
+    description: "Path to AI system prompt file. Defaults to prompts/ai_enrich_system.md in this skill directory."
   AI_API_KEY:
     type: env_var
     required: false
@@ -35,13 +35,13 @@ inputs:
 outputs:
   report:
     type: file
-    description: "Markdown report written to output/sec-daily-YYYY-MM-DD.md"
+    description: "Markdown report written to skills/sec-rss-daily/output/sec-daily-YYYY-MM-DD.md"
   archive:
     type: file
-    description: "Deduplication archive updated at data/seen_items.json"
+    description: "Deduplication archive updated at skills/sec-rss-daily/data/seen_items.json"
 metadata:
   tech_stack: python3, scikit-learn, feedparser
-  agents: hermes-agent, openclaw
+  agents: hermes-agent
 ---
 
 # sec-rss-daily Skill
@@ -80,8 +80,8 @@ bash skills/sec-rss-daily/run.sh
 This will:
 - Load configuration from `skills/sec-rss-daily/skill.yaml`
 - Execute the main pipeline script at `skills/sec-rss-daily/scripts/generate_sec_daily.py`
-- Output a Markdown report to `output/sec-daily-YYYY-MM-DD.md`
-- Update the deduplication archive at `data/seen_items.json`
+- Output a Markdown report to `skills/sec-rss-daily/output/sec-daily-YYYY-MM-DD.md`
+- Update the deduplication archive at `skills/sec-rss-daily/data/seen_items.json`
 
 ## Configuration
 
@@ -137,9 +137,8 @@ Categories include:
 ## Agent Compatibility
 
 This skill is designed to work with:
-- **hermes-agent**: For automated security news monitoring workflows
-- **openclaw**: For security intelligence gathering pipelines
-- **Any agentskills.io-compatible agent**: Through standard SKILL.md discovery
+- **hermes-agent**: Primary/base agent for skill discovery and invocation
+- **Any agentskills.io-compatible agent**: Reuse the same `SKILL.md` and `run.sh` contract after Hermes-agent validation
 
 ## Files Structure
 
@@ -147,15 +146,15 @@ This skill is designed to work with:
 skills/sec-rss-daily/
 ├── SKILL.md              # This file (agentskills.io standard)
 ├── skill.yaml            # Pipeline configuration (not part of standard)
-├── run.sh                # Execution entry point
+├── run.sh                # Hermes-agent execution entry point
 ├── scripts/
 │   └── generate_sec_daily.py  # Main pipeline implementation
-└── prompts/
-    └── ai_enrich_system.md    # AI system prompt template
-data/
-├── seen_items.json       # Historical deduplication archive (generated)
-output/
-└── sec-daily-*.md        # Generated reports (created after run)
+├── prompts/
+│   └── ai_enrich_system.md    # AI system prompt template
+├── data/
+│   └── seen_items.json        # Historical deduplication archive (generated)
+└── output/
+    └── sec-daily-*.md         # Generated reports (created after run)
 ```
 
 ## Example Usage for Agents
@@ -166,7 +165,7 @@ When an agent detects a user request like:
 - "Aggregate recent CVE information from RSS feeds"
 - "What are the top security news today?"
 
-The agent should invoke this skill by executing the run.sh script and then present or process the generated Markdown output.
+Hermes-agent should invoke this skill by executing the `run.sh` script and then present or process the generated Markdown output.
 
 ## Customization
 

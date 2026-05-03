@@ -34,6 +34,9 @@ HIGH_VALUE_KEYWORDS = {
     "cve": 12,
 }
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+SKILL_DIR = SCRIPT_DIR.parent
+
 
 @dataclass
 class NewsItem:
@@ -65,6 +68,20 @@ def to_raw_github_url(url: str) -> str:
 def load_yaml(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+def resolve_skill_input_path(raw_path: str, *, skill_dir: Path = SKILL_DIR) -> Path:
+    path = Path(raw_path)
+    if path.is_absolute():
+        return path
+    return skill_dir / path
+
+
+def resolve_config_output_path(raw_path: str, *, config_path: Path) -> Path:
+    path = Path(raw_path)
+    if path.is_absolute():
+        return path
+    return config_path.parent / path
 
 
 def normalize_url(url: str) -> str:
@@ -398,14 +415,13 @@ def render_markdown(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate security RSS daily markdown report")
-    parser.add_argument("--config", default="skills/sec-rss-daily/skill.yaml", help="Skill config YAML path")
-    parser.add_argument("--system-prompt", default="skills/sec-rss-daily/prompts/ai_enrich_system.md", help="AI system prompt path")
+    parser.add_argument("--config", default="skill.yaml", help="Skill config YAML path")
+    parser.add_argument("--system-prompt", default="prompts/ai_enrich_system.md", help="AI system prompt path")
     parser.add_argument("--date", default=None, help="Report date, format YYYY-MM-DD")
     args = parser.parse_args()
 
-    root = Path.cwd()
-    config_path = root / args.config
-    prompt_path = root / args.system_prompt
+    config_path = resolve_skill_input_path(args.config)
+    prompt_path = resolve_skill_input_path(args.system_prompt)
     cfg = load_yaml(config_path)
 
     p_fetch = cfg["pipeline"]["rss_fetch"]
@@ -448,7 +464,7 @@ def main() -> None:
         it for it in uniq.values() if (it.published_at is None or it.published_at >= cutoff)
     ]
 
-    archive_path = root / out_cfg["archive_json_path"]
+    archive_path = resolve_config_output_path(str(out_cfg["archive_json_path"]), config_path=config_path)
     seen_map = load_seen_map(archive_path)
 
     for item in filtered:
@@ -502,7 +518,7 @@ def main() -> None:
     cve_events = aggregate_cve_events(filtered) if p_cve.get("enabled", True) else {"by_cve": {}, "clusters": {}}
 
     md = render_markdown(report_date, filtered, cve_events, since_hours=since_hours)
-    markdown_dir = root / out_cfg["markdown_dir"]
+    markdown_dir = resolve_config_output_path(str(out_cfg["markdown_dir"]), config_path=config_path)
     markdown_dir.mkdir(parents=True, exist_ok=True)
     report_name = out_cfg["report_name_format"].format(date=report_date.isoformat())
     report_path = markdown_dir / report_name

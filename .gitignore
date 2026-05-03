@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+/data/
+/output/
+
+/skills/*/data/*
+!/skills/*/data/.gitkeep
+/skills/*/output/*
+!/skills/*/output/.gitkeep

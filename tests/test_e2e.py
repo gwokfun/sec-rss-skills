@@ -62,8 +62,9 @@ def _make_response(content: bytes | str, status: int = 200) -> MagicMock:
     return resp
 
 
-def _make_config(tmp_path: Path, *, ai_enabled: bool = False) -> Path:
+def _make_config(tmp_path: Path, *, ai_enabled: bool = False, relative_output_paths: bool = False) -> Path:
     """Write a minimal skill.yaml to *tmp_path* and return its path."""
+    markdown_dir = "output" if relative_output_paths else str(tmp_path / "output")
     cfg = {
         "pipeline": {
             "rss_fetch": {
@@ -95,9 +96,9 @@ def _make_config(tmp_path: Path, *, ai_enabled: bool = False) -> Path:
             },
         },
         "output": {
-            "markdown_dir": str(tmp_path / "output"),
+            "markdown_dir": markdown_dir,
             "report_name_format": "sec-daily-{date}.md",
-            "archive_json_path": str(tmp_path / "data" / "seen_items.json"),
+            "archive_json_path": "data/seen_items.json" if relative_output_paths else str(tmp_path / "data" / "seen_items.json"),
             "timezone": "UTC",
         },
     }
@@ -255,6 +256,38 @@ class TestE2EPipelineHeuristicOnly:
         data = json.loads(archive.read_text())
         assert isinstance(data, dict)
         assert len(data) >= 1
+
+    def test_relative_output_paths_resolve_from_config_dir(self, tmp_path):
+        skill_dir = tmp_path / "skill"
+        skill_dir.mkdir()
+        config_path = _make_config(skill_dir, ai_enabled=False, relative_output_paths=True)
+        prompt_path = _make_prompt(skill_dir)
+
+        def fake_get(url, **kwargs):
+            if "opml" in url.lower() or "tiny.opml" in url:
+                return _make_response(MINIMAL_OPML)
+            return _make_response(MINIMAL_RSS)
+
+        import generate_sec_daily as mod
+
+        with patch("requests.Session") as MockSession:
+            session = MagicMock()
+            session.get.side_effect = fake_get
+            MockSession.return_value = session
+
+            with patch(
+                "sys.argv",
+                [
+                    "generate_sec_daily.py",
+                    "--config", str(config_path),
+                    "--system-prompt", str(prompt_path),
+                    "--date", "2024-01-01",
+                ],
+            ):
+                mod.main()
+
+        assert (skill_dir / "output" / "sec-daily-2024-01-01.md").exists()
+        assert (skill_dir / "data" / "seen_items.json").exists()
 
     def test_seen_penalty_applied_on_second_run(self, tmp_path):
         config_path = _make_config(tmp_path, ai_enabled=False)
